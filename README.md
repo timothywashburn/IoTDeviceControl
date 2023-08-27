@@ -2,7 +2,7 @@
 
 IoTDeviceControl is a simple Python script that controls the speed of my fan (might get around to doing other IoT experiments with it) based on the temperature of the house and AC using the Google Assistant SDK, ensuring that my fan is never on when the AC is on. Entirely impractical but surprisingly it works fairly well for what I'm doing.
 
-## Usage
+## Setup
 
 To use this project, you can follow these steps:
 
@@ -27,7 +27,3 @@ To use this project, you can follow these steps:
 10. Run the project: `python main.py`
 
 If someone actually decides to try to get this working for some reason, and I inevitably didn't explain how to do something you can reference the [documentation](https://developers.google.com/assistant/sdk/guides/service/python#embed) I followed.
-
-## Contributing
-
-This isn't a project I'm anticipating anyone to contribute to. I just felt like posting it because I like making small random scripts and in the off case my ~~extremely inefficient~~ code can help someone.
