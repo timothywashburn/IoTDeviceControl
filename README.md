@@ -6,13 +6,9 @@ IoTDeviceControl is a simple Python script that controls the speed of my fan (mi
 
 To use this project, you can follow these steps:
 
-1. Clone this repository:
+1. Clone this repository: `git clone https://github.com/your-username/IoTDeviceControl.git`
 
-   `git clone https://github.com/your-username/IoTDeviceControl.git`
-
-2. Install the required dependencies:
-
-   `pip install -r requirements.txt`
+2. Install the required dependencies: `pip install -r requirements.txt`
 
 3. Copy `config-example.yml` and rename it to `config.yml`
 
@@ -28,9 +24,7 @@ To use this project, you can follow these steps:
 
 9. Create a [Pushover](https://pushover.net/) account and application for sending push notifications of actions to a mobile device. Copy the user id to the `pushover_user` variable and the application token to the `pushover_token` variable in the `config.yml` file
 
-10. Run the project:
-
-    `python main.py`
+10. Run the project: `python main.py`
 
 If someone actually decides to try to get this working for some reason, and I inevitably didn't explain how to do something you can reference the [documentation](https://developers.google.com/assistant/sdk/guides/service/python#embed) I followed.
 
