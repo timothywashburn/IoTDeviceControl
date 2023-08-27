@@ -28,7 +28,7 @@ def get_config():
         return yaml.load(config, Loader=yaml.Loader)
 
 
-# this method is
+# this method has been adapted from googlesamples.assistant.grpc.textinput
 async def query_assistant(query):
     api_endpoint = 'embeddedassistant.googleapis.com'
     credentials = os.path.join(click.get_app_dir('google-oauthlib-tool'), 'credentials.json')
@@ -38,7 +38,6 @@ async def query_assistant(query):
     display = True
     grpc_deadline = 60 * 3 + 5
 
-    # Load OAuth 2.0 credentials.
     try:
         with open(credentials, 'r') as f:
             credentials = google.oauth2.credentials.Credentials(token=None,
@@ -50,10 +49,8 @@ async def query_assistant(query):
         print('Run google-oauthlib-tool to initialize new OAuth 2.0 credentials.')
         return
 
-    # Create an authorized gRPC channel.
     grpc_channel = google.auth.transport.grpc.secure_authorized_channel(
         credentials, http_request, api_endpoint)
-    # print(f'Connecting to {api_endpoint}')
 
     with SampleTextAssistant(lang, model_id, project_id, display,
                              grpc_channel, grpc_deadline) as assistant:
@@ -168,14 +165,13 @@ def send_push_notification(message):
 
 
 sim_house_temp = 55
-change = -1
-
+sim_house_temp_change = -1
 is_fan_disabled = False
 last_fan_speed_lang = None
 
 
 async def main():
-    global sim_house_temp, change
+    global sim_house_temp, sim_house_temp_change
 
     global is_fan_disabled, last_fan_speed_lang
     while True:
@@ -202,4 +198,5 @@ async def main():
 
 
 colorama.init(autoreset=True)
-asyncio.run(main())
+send_push_notification('test')
+# asyncio.run(main())
