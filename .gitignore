@@ -1,3 +1,4 @@
 /venv
 /.idea
+config.yml
 client_secret_backup.json

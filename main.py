@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 from time import sleep
 from colorama import Fore
 import colorama
+import yaml
+
 
 import google.auth.transport.grpc
 import google.auth.transport.requests
@@ -21,12 +23,17 @@ class DeviceUnavailableException(Exception):
         super().__init__(self.message)
 
 
+def get_config():
+    with open('config.yml') as config:
+        return yaml.load(config, Loader=yaml.Loader)
+
+
 # this method is
 async def query_assistant(query):
     api_endpoint = 'embeddedassistant.googleapis.com'
     credentials = os.path.join(click.get_app_dir('google-oauthlib-tool'), 'credentials.json')
-    project_id = '***REMOVED***'
-    model_id = '***REMOVED***-my-computer-df8efd'
+    project_id = get_config()['project_id']
+    model_id = get_config()['model_id']
     lang = 'en-US'
     display = True
     grpc_deadline = 60 * 3 + 5
@@ -153,8 +160,8 @@ async def set_fan_speed(fan_speed):
 def send_push_notification(message):
     url = 'https://api.pushover.net/1/messages.json'
     data = {
-        'token': '***REMOVED***',
-        'user': '***REMOVED***',
+        'token': get_config()['pushover_token'],
+        'user': get_config()['pushover_user'],
         'message': message,
     }
     requests.post(url, json=data)

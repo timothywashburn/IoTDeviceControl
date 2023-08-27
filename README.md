@@ -10,23 +10,25 @@ To use this project, you can follow these steps:
 
    `git clone https://github.com/your-username/IoTDeviceControl.git`
 
-4. Install the required dependencies:
+2. Install the required dependencies:
 
    `pip install -r requirements.txt`
 
-5. Set up a Google Actions project
+3. Set up a Google Actions project
 
-6. Place your `Project ID` of the actions project in the `project_id` variable
+4. Place your `Project ID` of the actions project in the `project_id` variable
 
-7. Register your computer as a device of any type to connect it to your Google Home using: https://console.actions.google.com/u/0/project/{project-id}/deviceregistration
+5. Register your computer as a device of any type to connect it to your Google Home using: https://console.actions.google.com/u/0/project/{project-id}/deviceregistration
 
-8. Place your `Model Id` of the device (yes the capitalization is inconsistent) in the `model_id` variable
+6. Place your `Model Id` of the device (yes the capitalization is inconsistent) in the `model_id` variable
 
-9. Generate the credentials necessary for the project ([documentation](https://developers.google.com/assistant/sdk/guides/service/python/embed/install-sample#generate_credentials))
+7. Generate the credentials necessary for the project ([documentation](https://developers.google.com/assistant/sdk/guides/service/python/embed/install-sample#generate_credentials))
 
-10. Run the project:
+8. Create a [Pushover](https://pushover.net/) account and application for sending push notifications of actions to a mobile device
 
-    `python main.py`
+9. Run the project:
+
+   `python main.py`
 
 If someone actually decides to try to get this working for some reason, and I inevitably didn't explain how to do something you can reference the [documentation](https://developers.google.com/assistant/sdk/guides/service/python#embed) I followed.
 
