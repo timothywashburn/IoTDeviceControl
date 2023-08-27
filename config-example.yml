@@ -1,4 +1,5 @@
 project_id: ''
 model_id: ''
+google_home_fan_name: ''
 pushover_user: ''
 pushover_token: ''

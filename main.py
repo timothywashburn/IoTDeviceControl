@@ -28,6 +28,10 @@ def get_config():
         return yaml.load(config, Loader=yaml.Loader)
 
 
+def get_fan_name():
+    return get_config()['google_home_fan_name']
+
+
 # this method has been adapted from googlesamples.assistant.grpc.textinput
 async def query_assistant(query):
     api_endpoint = 'embeddedassistant.googleapis.com'
@@ -83,7 +87,7 @@ async def get_temperatures():
 
 
 async def get_fan_speed():
-    response_text = await query_assistant('what is tim fan speed')
+    response_text = await query_assistant(f'what is {get_fan_name()} speed')
 
     if 'sorry' in response_text.lower():
         print(f'Error requesting fan speed: {response_text}')
@@ -124,23 +128,23 @@ async def get_fan_speed():
 async def set_fan_speed(fan_speed):
     fan_speeds = {
         0: {
-            'query': 'turn tim fan off',
+            'query': f'turn {get_fan_name()} off',
             'action': 'Turned fan off'
         },
         1: {
-            'query': 'set tim fan speed to slow',
+            'query': f'set {get_fan_name()} speed to slow',
             'action': 'Set fan speed to slow'
         },
         2: {
-            'query': 'set tim fan speed to medium',
+            'query': f'set {get_fan_name()} speed to medium',
             'action': 'Set fan speed to medium'
         },
         3: {
-            'query': 'set tim fan speed to fast',
+            'query': f'set {get_fan_name()} speed to fast',
             'action': 'Set fan speed to fast'
         },
         4: {
-            'query': 'set tim fan speed to fastest',
+            'query': f'set {get_fan_name()} speed to fastest',
             'action': 'Set fan speed to fastest'
         },
     }
