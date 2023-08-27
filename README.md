@@ -14,21 +14,23 @@ To use this project, you can follow these steps:
 
    `pip install -r requirements.txt`
 
-3. Set up a Google Actions project
+3. Copy `config-example.yml` and rename it to `config.yml`
 
-4. Place your `Project ID` of the actions project in the `project_id` variable
+4. Set up a Google Actions project
 
-5. Register your computer as a device of any type to connect it to your Google Home using: https://console.actions.google.com/u/0/project/{project-id}/deviceregistration
+5. Place your `Project ID` of the actions project in the `project_id` variable of `config.yml`
 
-6. Place your `Model Id` of the device (yes the capitalization is inconsistent) in the `model_id` variable
+6. Register your computer as a device of any type to connect it to your Google Home using: https://console.actions.google.com/u/0/project/{project-id}/deviceregistration
 
-7. Generate the credentials necessary for the project ([documentation](https://developers.google.com/assistant/sdk/guides/service/python/embed/install-sample#generate_credentials))
+7. Place your `Model Id` of the device (yes the capitalization is inconsistent) in the `model_id` variable of `config.yml`
 
-8. Create a [Pushover](https://pushover.net/) account and application for sending push notifications of actions to a mobile device
+8. Generate the credentials necessary for the project ([documentation](https://developers.google.com/assistant/sdk/guides/service/python/embed/install-sample#generate_credentials))
 
-9. Run the project:
+9. Create a [Pushover](https://pushover.net/) account and application for sending push notifications of actions to a mobile device. Copy the user id to the `pushover_user` variable and the application token to the `pushover_token` variable in the `config.yml` file
 
-   `python main.py`
+10. Run the project:
+
+    `python main.py`
 
 If someone actually decides to try to get this working for some reason, and I inevitably didn't explain how to do something you can reference the [documentation](https://developers.google.com/assistant/sdk/guides/service/python#embed) I followed.
 
