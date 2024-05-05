@@ -202,5 +202,5 @@ async def main():
 
 
 colorama.init(autoreset=True)
-send_push_notification('test')
-# asyncio.run(main())
+# send_push_notification('test')
+asyncio.run(main())
